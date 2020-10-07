@@ -148,8 +148,12 @@ const parseEvent = (event) => {
 
 	const startHour = parseHour(event.startHour);
 	const endHour = parseHour(event.endHour);
-    newEvent.startDate = startDate.day + '/' + startDate.month + " => " + startHour[0] + ":" + startHour[1];
-	newEvent.endDate = endDate.day + "/" + endDate.month + " => " + endHour[0] + ":" + endHour[1];
+	newEvent.startDate = new Date( (+year), (+startDate.month) - 1, (+startDate.day), (+startHour[0]), (+startHour[1]) );
+	newEvent.endDate = new Date((+year), (+endDate.month) - 1, (+endDate.day), (+endHour[0]), (+endHour[1]));
+	
+	// newEvent.startDate = newEvent.startDate.toLocaleString();
+	// newEvent.endDate = newEvent.endDate.toLocaleString();
+
 	return newEvent;
 }
 
@@ -157,9 +161,3 @@ const parsedEvents = events.map(parseEvent);
 
 console.log(parsedEvents);
 
-// let curr = 'A';
-// while (curr !== undefined) {
-// 	console.log(curr);
-// 	curr = getNextLetter(curr);
-// }
-// console.log(getNextLetter('a234#'));
