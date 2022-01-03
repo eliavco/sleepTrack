@@ -1,7 +1,8 @@
 const { readEvents } = require('./readEvents');
 
-const path = "/Users/eliavcohen/Downloads/December-2020.xls";
-const year = "2021";
+const path = "/Users/eliavcohen/Downloads/December-2021.xls";
+
+const year = "2022";
 
 const events = readEvents(path, year);
 
